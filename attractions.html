@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attractions & Tours - Find Your Perfect Stay</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="attractions.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" role="banner">
+      <nav class="nav">
+        <div class="nav-brand">
+          <h1><a href="index.html" style="text-decoration: none; color: #d4af37;">Grand Vista Resort</a></h1>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu" role="menubar">
+          <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+          <li role="none"><a href="rooms.html" role="menuitem">Rooms & Suites</a></li>
+          <li role="none"><a href="dining.html" role="menuitem">Dining</a></li>
+          <li role="none"><a href="spa.html" role="menuitem">Spa & Wellness</a></li>
+          <li role="none"><a href="events.html" role="menuitem">Events</a></li>
+          <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
+          <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+          <!-- Will be populated by auth.js (user menu when logged in) -->
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="attractions-hero">
+      <div class="container">
+        <div class="attractions-header">
+          <h1>Discover Amazing Attractions & Tours</h1>
+          <p>
+            Explore iconic landmarks, museums, and all the guided tours around the world
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+      <div class="container">
+        <div class="filters-container">
+          <!-- Search Bar -->
+          <div class="search-container">
+            <div class="search-input-container">
+              <i data-lucide="search"></i>
+              <input
+                type="text"
+                placeholder="Search attractions..."
+                class="search-input"
+                id="searchInput"
+              />
+            </div>
+          </div>
+
+          <!-- Category Filters -->
+          <div class="category-filters">
+            <button class="filter-btn active" data-category="all">
+              <i data-lucide="map"></i>
+              All
+            </button>
+            <button class="filter-btn" data-category="landmarks">
+              <i data-lucide="monument"></i>
+              Landmarks
+            </button>
+            <button class="filter-btn" data-category="museums">
+              <i data-lucide="building-2"></i>
+              Museums
+            </button>
+            <button class="filter-btn" data-category="tours">
+              <i data-lucide="route"></i>
+              City Tours
+            </button>
+            <button class="filter-btn" data-category="historical">
+              <i data-lucide="castle"></i>
+              Historical
+            </button>
+            <button class="filter-btn" data-category="nature">
+              <i data-lucide="mountain"></i>
+              Nature
+            </button>
+            <button class="filter-btn" data-category="entertainment">
+              <i data-lucide="ticket"></i>
+              Entertainment
+            </button>
+          </div>
+
+          <!-- Sort Options -->
+          <div class="filter-options">
+            <select class="filter-select" id="sortSelect">
+              <option value="popular">Most Popular</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+              <option value="newest">Recently Added</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Attraction -->
+    <section class="featured-attraction">
+      <div class="container">
+        <div class="featured-card">
+          <div class="featured-image">
+            <div class="image-placeholder">
+              <span><img src="assets/attractive/eiffel.avif"></span>
+            </div>
+            <div class="featured-badge">Most Popular</div>
+            <div class="featured-rating">
+              <i data-lucide="star"></i>
+              <span>4.8</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-header">
+              <h3>Eiffel Tower Skip-the-Line Tour</h3>
+              <div class="featured-location">
+                <i data-lucide="map-pin"></i>
+                <span>Paris, France</span>
+              </div>
+            </div>
+            <p class="featured-description">
+              Skip the long lines and ascend the iconic Eiffel Tower with
+              priority access. Enjoy breathtaking panoramic views of Paris from
+              the observation decks while learning about the tower's fascinating
+              history from expert guides.
+            </p>
+            <div class="featured-details">
+              <div class="detail-item">
+                <i data-lucide="clock"></i>
+                <span>2.5 hours</span>
+              </div>
+              <div class="detail-item">
+                <i data-lucide="users"></i>
+                <span>Max 15 people</span>
+              </div>
+              <div class="detail-item">
+                <i data-lucide="ticket"></i>
+                <span>Skip-the-line</span>
+              </div>
+              <div class="detail-item">
+                <i data-lucide="headphones"></i>
+                <span>Audio guide</span>
+              </div>
+            </div>
+            <div class="featured-footer">
+              <div class="featured-price">
+                <span class="currency">$</span>45
+                <span class="period">/person</span>
+              </div>
+              <button class="btn btn-primary">Book Tour</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+      <div class="container">
+        <!-- Results Header -->
+        <div class="results-header">
+          <div class="results-count">
+            <span id="resultsCount">189</span> attractions found
+          </div>
+          <div class="view-toggles">
+            <button class="view-btn active" data-view="grid">
+              <i data-lucide="grid-3x3"></i>
+            </button>
+            <button class="view-btn" data-view="list">
+              <i data-lucide="list"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Attractions Grid -->
+        <div class="attractions-container" id="attractionsContainer">
+          <!-- Attraction cards will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+          <button class="btn btn-primary load-more-btn" id="loadMoreBtn">
+            Discover More Attractions
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Attraction Modal -->
+    <div class="modal-overlay" id="attractionModal">
+      <div class="modal-content">
+        <button class="modal-close" id="closeModal">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="modal-body" id="modalBody">
+          <!-- Modal content will be inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <!-- Company Info -->
+          <div class="footer-section">
+            <div class="company-info">
+              <div class="company-logo">
+                <div class="logo-icon"></div>
+                <span>Company</span>
+              </div>
+              <div class="social-icons">
+                <button class="social-btn">
+                  <i data-lucide="twitter"></i>
+                </button>
+                <button class="social-btn">
+                  <i data-lucide="instagram"></i>
+                </button>
+                <button class="social-btn">
+                  <i data-lucide="youtube"></i>
+                </button>
+                <button class="social-btn">
+                  <i data-lucide="linkedin"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- About -->
+          <div class="footer-section">
+            <h3>About</h3>
+            <ul>
+              <li><a href="#">UX design</a></li>
+              <li><a href="#">Wireframing</a></li>
+              <li><a href="#">Diagramming</a></li>
+              <li><a href="#">Brainstorming</a></li>
+              <li><a href="#">Online whiteboard</a></li>
+              <li><a href="#">Team collaboration</a></li>
+            </ul>
+          </div>
+
+          <!-- Careers -->
+          <div class="footer-section">
+            <h3>Careers</h3>
+            <ul>
+              <li><a href="#">Prototyping</a></li>
+              <li><a href="#">Development features</a></li>
+              <li><a href="#">Design systems</a></li>
+              <li><a href="#">Collaboration features</a></li>
+              <li><a href="#">Design process</a></li>
+              <li><a href="#">FigJam</a></li>
+            </ul>
+          </div>
+
+          <!-- Help & Map -->
+          <div class="footer-section">
+            <div class="help-section">
+              <h3>Help</h3>
+              <ul>
+                <li><a href="#">Best practices</a></li>
+                <li><a href="#">Colors</a></li>
+                <li><a href="#">Colour Wheel</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="#">Resource Library</a></li>
+              </ul>
+            </div>
+            <div class="map-section">
+              <div class="map-link">
+                <i data-lucide="map-pin"></i>
+                <span>Map</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="attractions.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
